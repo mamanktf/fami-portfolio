@@ -54,7 +54,7 @@ export default function WorkCard({
         dark:bg-zinc-900/50
       "
     >
-      {/* ================= Thumbnail ================= */}
+      {/* ================= THUMBNAIL ================= */}
 
       <div className="relative aspect-video overflow-hidden">
         {/* Thumbnail */}
@@ -133,18 +133,21 @@ export default function WorkCard({
           <div
             className="
               flex
-              h-16
-              w-16
+              h-14
+              w-14
               items-center
               justify-center
               rounded-full
               bg-white/90
               shadow-xl
+
+              sm:h-16
+              sm:w-16
             "
           >
             <Play
-              size={28}
-              className="ml-1 text-black"
+              size={24}
+              className="ml-1 text-black sm:size-7"
             />
           </div>
         </div>
@@ -162,21 +165,31 @@ export default function WorkCard({
               gap-1
               rounded-full
               bg-black/70
-              px-3
+              px-2.5
               py-1
-              text-xs
+              text-[11px]
               text-white
+
+              sm:px-3
+              sm:text-xs
             "
           >
-            <Clock3 size={12} />
+            <Clock3 size={11} />
             {work.duration}
           </div>
         )}
       </div>
 
-      {/* ================= Content ================= */}
+      {/* ================= CONTENT ================= */}
 
-      <div className="space-y-5 p-6">
+      <div
+        className="
+          space-y-4
+          p-5
+          sm:space-y-5
+          sm:p-6
+        "
+      >
         {/* Category */}
 
         <span
@@ -197,16 +210,19 @@ export default function WorkCard({
         {/* Title & Description */}
 
         <div>
-          <h3 className="text-xl font-bold">
+          <h3 className="text-lg font-bold sm:text-xl">
             {work.title}
           </h3>
 
           <p
             className="
               mt-2
-              leading-7
+              text-sm
+              leading-6
               text-zinc-600
               dark:text-zinc-400
+              sm:text-base
+              sm:leading-7
             "
           >
             {work.description}
@@ -215,7 +231,7 @@ export default function WorkCard({
 
         {/* Tools */}
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2">
           {work.tools.map((tool) => (
             <span
               key={tool}
@@ -223,10 +239,12 @@ export default function WorkCard({
                 rounded-full
                 border
                 border-zinc-200
-                px-3
+                px-2.5
                 py-1
-                text-xs
+                text-[11px]
                 dark:border-zinc-700
+                sm:px-3
+                sm:text-xs
               "
             >
               {tool}
@@ -246,13 +264,15 @@ export default function WorkCard({
             className="
               inline-flex
               items-center
-              gap-2
-              text-sm
+              gap-1.5
+              text-xs
               font-medium
               text-emerald-500
+              sm:gap-2
+              sm:text-sm
             "
           >
-            <Play size={16} />
+            <Play size={14} />
             View Work
           </Link>
 
@@ -264,20 +284,23 @@ export default function WorkCard({
             className="
               flex
               items-center
-              gap-2
-              text-sm
+              gap-1.5
+              text-xs
               text-zinc-500
               transition-all
               group-hover:text-emerald-500
+              sm:gap-2
+              sm:text-sm
             "
           >
             Details
 
             <ArrowRight
-              size={16}
+              size={14}
               className="
                 transition-transform
                 group-hover:translate-x-1
+                sm:size-4
               "
             />
           </button>

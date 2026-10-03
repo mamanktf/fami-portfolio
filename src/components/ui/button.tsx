@@ -1,48 +1,50 @@
-import { ButtonHTMLAttributes } from "react";
-import clsx from "clsx";
+import Link from "next/link";
+import { ReactNode } from "react";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps {
+  children: ReactNode;
   variant?: "primary" | "secondary";
+  href?: string;
+  onClick?: () => void;
 }
 
 export default function Button({
-  variant = "primary",
-  className,
   children,
-  ...props
+  variant = "primary",
+  href,
+  onClick,
 }: ButtonProps) {
+  const className = `
+    inline-flex
+    items-center
+    justify-center
+    rounded-xl
+    px-5
+    py-3
+    text-sm
+    font-semibold
+    transition-all
+    duration-300
+    ${
+      variant === "primary"
+        ? "bg-emerald-500 text-white hover:bg-emerald-400 hover:shadow-lg hover:shadow-emerald-500/20"
+        : "border border-zinc-300 bg-white/50 text-zinc-800 hover:border-emerald-500 hover:text-emerald-500 dark:border-zinc-700 dark:bg-zinc-900/50 dark:text-zinc-200"
+    }
+  `;
+
+  if (href) {
+    return (
+      <Link href={href} className={className}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
     <button
-      className={clsx(
-        "inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold transition-all duration-300",
-
-        variant === "primary"
-          ? `
-            bg-emerald-500
-            text-white
-
-            hover:-translate-y-1
-            hover:bg-emerald-600
-            hover:shadow-lg
-            hover:shadow-emerald-500/30
-          `
-          : `
-            border
-            border-zinc-300
-            bg-transparent
-            text-zinc-900
-
-            hover:-translate-y-1
-            hover:bg-zinc-100
-
-            dark:border-zinc-700
-            dark:text-white
-            dark:hover:bg-zinc-800
-          `,
-
-        className
-      )}
-      {...props}
+      type="button"
+      onClick={onClick}
+      className={className}
     >
       {children}
     </button>

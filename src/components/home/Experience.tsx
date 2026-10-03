@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Container from "@/components/ui/container";
 
 const experiences = [
   {
@@ -28,64 +29,129 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-28">
-      <div className="mx-auto max-w-6xl px-6">
+    <section
+      id="experience"
+      className="scroll-mt-24 py-16 sm:py-20 lg:py-28"
+    >
+      <Container>
+        {/* ================= HEADER ================= */}
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: .6 }}
-          className="mb-16"
+          transition={{ duration: 0.6 }}
+          className="mb-10 sm:mb-16"
         >
-          <p className="uppercase tracking-[0.4em] text-sm text-emerald-400">
+          <p className="text-sm uppercase tracking-[0.35em] text-emerald-400 sm:tracking-[0.4em]">
             Experience
           </p>
 
-          <h2 className="mt-4 text-5xl font-bold text-white">
+          <h2
+            className="
+              mt-3
+              text-4xl
+              font-bold
+              leading-tight
+              text-white
+              sm:mt-4
+              sm:text-5xl
+            "
+          >
             Career Journey
           </h2>
         </motion.div>
 
-        <div className="relative border-l border-zinc-800 ml-4">
+        {/* ================= TIMELINE ================= */}
 
+        <div className="relative ml-3 border-l border-zinc-800 sm:ml-4">
           {experiences.map((item, index) => (
-
             <motion.div
               key={item.year}
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{
-                duration: .6,
-                delay: index * .15,
+                duration: 0.6,
+                delay: index * 0.15,
               }}
-              className="relative mb-14 pl-10"
+              className="
+                relative
+                mb-10
+                pl-7
+                last:mb-0
+                sm:mb-14
+                sm:pl-10
+              "
             >
+              {/* Timeline Dot */}
 
-              <div className="absolute -left-[9px] top-2 h-4 w-4 rounded-full bg-emerald-400 ring-4 ring-zinc-950" />
+              <div
+                className="
+                  absolute
+                  -left-[7px]
+                  top-1.5
+                  h-3.5
+                  w-3.5
+                  rounded-full
+                  bg-emerald-400
+                  ring-4
+                  ring-zinc-950
+                  sm:-left-[9px]
+                  sm:top-2
+                  sm:h-4
+                  sm:w-4
+                "
+              />
+
+              {/* Year */}
 
               <span className="text-sm font-semibold text-emerald-400">
                 {item.year}
               </span>
 
-              <h3 className="mt-2 text-2xl font-bold text-white">
+              {/* Title */}
+
+              <h3
+                className="
+                  mt-1.5
+                  text-xl
+                  font-bold
+                  leading-snug
+                  text-white
+                  sm:mt-2
+                  sm:text-2xl
+                "
+              >
                 {item.title}
               </h3>
 
-              <p className="mt-1 text-zinc-400">
+              {/* Company */}
+
+              <p className="mt-1 text-sm text-zinc-400 sm:text-base">
                 {item.company}
               </p>
 
-              <p className="mt-4 leading-8 text-zinc-500">
+              {/* Description */}
+
+              <p
+                className="
+                  mt-3
+                  max-w-2xl
+                  text-sm
+                  leading-7
+                  text-zinc-500
+                  sm:mt-4
+                  sm:text-base
+                  sm:leading-8
+                "
+              >
                 {item.description}
               </p>
-
             </motion.div>
-
           ))}
-
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -4,15 +4,17 @@ import About from "@/components/home/about";
 import FeaturedWorks from "@/components/home/featured-works";
 import FeaturedProject from "@/components/home/FeaturedProject";
 import Experience from "@/components/home/Experience";
+import Contact from "@/components/home/contact";
 
 export default function Home() {
   return (
     <MainLayout>
       <Hero />
-      <FeaturedProject />
       <About />
+      <FeaturedProject />
       <Experience />
       <FeaturedWorks />
+      <Contact />
     </MainLayout>
   );
 }

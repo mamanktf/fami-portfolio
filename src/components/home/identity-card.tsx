@@ -28,8 +28,14 @@ export default function IdentityCard() {
     >
       {/* PHOTO */}
 
-      <div className="relative h-[320px] overflow-hidden">
-
+      <div
+        className="
+          relative
+          h-[260px]
+          overflow-hidden
+          sm:h-[320px]
+        "
+      >
         <Image
           src="/images/about/fami.jpeg"
           alt="Fami Firdaus"
@@ -43,40 +49,78 @@ export default function IdentityCard() {
             group-hover:scale-105
           "
         />
-
       </div>
 
       {/* CONTENT */}
 
-      <div className="space-y-6 p-7">
+      <div
+        className="
+          space-y-4
+          p-5
+          sm:space-y-6
+          sm:p-7
+        "
+      >
+        {/* Location */}
 
-        <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
-          <MapPin className="h-4 w-4" />
+        <div
+          className="
+            flex
+            items-center
+            gap-2
+            text-sm
+            text-zinc-500
+            dark:text-zinc-400
+          "
+        >
+          <MapPin className="h-4 w-4 shrink-0" />
           Bekasi, Indonesia
         </div>
 
-        <div className="flex items-center gap-2 text-sm font-medium text-emerald-500">
+        {/* Availability */}
 
-          <Circle className="h-3 w-3 fill-current" />
-
+        <div
+          className="
+            flex
+            items-center
+            gap-2
+            text-sm
+            font-medium
+            text-emerald-500
+          "
+        >
+          <Circle className="h-3 w-3 shrink-0 fill-current" />
           Available for Work
-
         </div>
 
-        <div className="border-t border-zinc-200 pt-6 dark:border-zinc-800">
+        {/* Stats */}
 
+        <div
+          className="
+            border-t
+            border-zinc-200
+            pt-5
+            dark:border-zinc-800
+            sm:pt-6
+          "
+        >
           <div className="grid grid-cols-3">
+            <StatItem
+              value="4+"
+              label="Years"
+            />
 
-            <StatItem value="4+" label="Years" />
+            <StatItem
+              value="100+"
+              label="Projects"
+            />
 
-            <StatItem value="100+" label="Projects" />
-
-            <StatItem value="6" label="Tools" />
-
+            <StatItem
+              value="6"
+              label="Tools"
+            />
           </div>
-
         </div>
-
       </div>
     </div>
   );

@@ -16,21 +16,27 @@ export default function FilterTabs({
         flex-wrap
         items-center
         justify-center
-        gap-3
+        gap-2
+        sm:gap-3
       "
     >
       {filters.map((filter) => (
         <button
           key={filter}
+          type="button"
           onClick={() => onChange(filter)}
           className={`
             rounded-full
-            px-5
-            py-2.5
-            text-sm
+            px-4
+            py-2
+            text-xs
             font-medium
             transition-all
             duration-300
+
+            sm:px-5
+            sm:py-2.5
+            sm:text-sm
 
             ${
               active === filter
